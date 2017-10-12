@@ -50,7 +50,7 @@ namespace SmartHome
             Console.WriteLine("Menu configurazione centralina SmartHome");
             Console.WriteLine("[1] Aggiungi Lampadina");
             Console.WriteLine("[2] Togli Lampadina");
-            Console.WriteLine("[3] Stampa il numero di Lampadine");
+            Console.WriteLine("[3] Stampa il numero di Lampadine nelle varie stanze");
             Console.WriteLine("[4] Esci dal programma");
             Console.ReadLine();
 
