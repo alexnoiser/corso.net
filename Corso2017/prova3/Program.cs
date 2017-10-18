@@ -30,13 +30,13 @@ namespace prova2
             }
         }
 
-        private static void OnOff(List<string> roomList, string input)
+        private static void OnOff(List<string> roomList, string input,bool  out bool IsOn)
         {
             if (input == "4")
             {
                 Console.WriteLine("Quale stanza vuoi gestire ?");
                 string room = Console.ReadLine();
-                bool IsOn;
+                IsOn = false;
                 if (room != string.Empty)
                 {
                     if (roomList.Contains(room))
