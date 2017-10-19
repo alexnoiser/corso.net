@@ -61,5 +61,11 @@ namespace InsertPersonData
         }
 
 
+  
+
+
     }
 }
+ 
+
+// Creare una copia di una Lista originale sul program.  La Console.Write va messo 

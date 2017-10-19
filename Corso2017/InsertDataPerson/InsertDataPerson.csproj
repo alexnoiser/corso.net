@@ -42,6 +42,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FileStorage.cs" />
+    <Compile Include="IStorage.cs" />
+    <Compile Include="MemoryStorage.cs" />
     <Compile Include="MonitorConsole.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="PersonManager.cs" />

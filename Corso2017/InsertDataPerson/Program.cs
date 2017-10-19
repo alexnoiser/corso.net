@@ -9,18 +9,27 @@ namespace InsertPersonData
     class Program
     {
         enum UserInput { AddPerson, DelPerson, PrintPersons, Exit, Error, Number }
-        
+
 
         static void Main(string[] args)
         {
 
             bool memory;
             bool loop = false;
-            PersonManager personManager = new PersonManager();
+            PersonManager personManager;
             MonitorConsole.PrintMemoryChoise();
             string input = Console.ReadLine();
+            if (input == "r")
+            {
+                personManager = new PersonManager(new MemoryStorage());
+            }
+            else
+            {
+                personManager = new PersonManager(new FileStorage());
+            }
+
             if (input == "r") memory = false;
-            if(input == "d") memory = true; 
+            if (input == "d") memory = true;
             Console.WriteLine("Impostazioni salvate");
             loop = true;
             int id = 0;
@@ -29,7 +38,7 @@ namespace InsertPersonData
             {
 
 
-                               
+
                 MonitorConsole.PrintMenu();
                 input = Console.ReadLine();
                 List<Person> PersonList = new List<Person>();
@@ -50,7 +59,7 @@ namespace InsertPersonData
                 }
                 if (result == UserInput.PrintPersons)
                 {
-                    
+
                     PrintPersonList(personManager);
                 }
                 if (result == UserInput.Error)
@@ -91,18 +100,18 @@ namespace InsertPersonData
 
         }
 
-        internal void ConsoleInput()
-        {
-            Console.WriteLine("");
-            Console.WriteLine("Menu Inserimento dati");
-            Console.WriteLine("[1] Aggiungi Nuova Persona");
-            Console.WriteLine("[2] Rimuovi Persona esistente");
-            Console.WriteLine("[3] Stampa elenco di persone");
-            Console.WriteLine("[4] Esci dal programma");
+        //internal void ConsoleInput()
+        //{
+        //    Console.WriteLine("");
+        //    Console.WriteLine("Menu Inserimento dati");
+        //    Console.WriteLine("[1] Aggiungi Nuova Persona");
+        //    Console.WriteLine("[2] Rimuovi Persona esistente");
+        //    Console.WriteLine("[3] Stampa elenco di persone");
+        //    Console.WriteLine("[4] Esci dal programma");
 
-        }
-        
-        internal static void AddDataPerson(PersonManager personManager,int id)
+        //}
+
+        internal static void AddDataPerson(PersonManager personManager, int id)
         {
             //PersonManager personManager = new PersonManager();
             MonitorConsole.PrintNameRequest();
@@ -114,13 +123,13 @@ namespace InsertPersonData
             int _id;
             _id = id + 1;
             personManager.AddPerson(nome, cognome, birthday, _id);
-            
+            MonitorConsole.PersonAdded();
             return;
 
         }
         private static void DelDataPerson(PersonManager personManager)
         {
-            
+
             MonitorConsole.PrintRemoveIdRequest();
             string _id = Console.ReadLine();
             int.TryParse(_id, out int id);
@@ -136,7 +145,7 @@ namespace InsertPersonData
             //PersonManager personManager = new PersonManager();
             //List<Person> PersonList = new List<Person>();
             //Person user = new Person(nome, cognome, birthday, id);
-            
+
             foreach (Person item in personManager.PersonList)
             {
                 Console.WriteLine($"Le persone registrate sono: {item.Id}, {item.Nome}, {item.Cognome}, {item.Birthday} ");
