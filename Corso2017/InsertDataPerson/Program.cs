@@ -16,13 +16,15 @@ namespace InsertPersonData
 
             bool memory;
             bool loop = false;
+            PersonManager personManager = new PersonManager();
             MonitorConsole.PrintMemoryChoise();
             string input = Console.ReadLine();
             if (input == "r") memory = false;
             if(input == "d") memory = true; 
             Console.WriteLine("Impostazioni salvate");
             loop = true;
-                        
+            int id = 0;
+
             while (loop)
             {
 
@@ -40,16 +42,16 @@ namespace InsertPersonData
                 }
                 if (result == UserInput.AddPerson)
                 {
-                    AddDataPerson();
+                    AddDataPerson(personManager, id);
                 }
                 if (result == UserInput.DelPerson)
                 {
-                    DelDataPerson();
+                    DelDataPerson(personManager);
                 }
                 if (result == UserInput.PrintPersons)
                 {
                     
-                    PrintPersonList();
+                    PrintPersonList(personManager);
                 }
                 if (result == UserInput.Error)
                 {
@@ -99,63 +101,26 @@ namespace InsertPersonData
             Console.WriteLine("[4] Esci dal programma");
 
         }
-        //internal static List<PersonManager> UserData (string nome, string cognome, string birthday, int id)
-        //{
-        //    PersonManager Anagrafica = new PersonManager();
-
-        //    id = 0;
-        //    MonitorConsole.PrintNameRequest();
-        //    nome = Console.ReadLine();
-        //    MonitorConsole.PrintSurnameRequest();
-        //    cognome = Console.ReadLine();
-        //    MonitorConsole.PrintBirtdayRequest();
-        //    birthday = Console.ReadLine();
-        //    id = id++;
-        //    Anagrafica.AddPerson(nome, cognome, birthday, id);          
-
-        //    return Anagrafica;
-
-        //}
-        //internal static Person UserData(string nome, string cognome, string birthday, int id)
-        //{
-
-        //    Person datiUtente = new Person(nome, cognome, birthday, id);
-        //    //PersonManager Anagrafica = new PersonManager();
-        //    id = 0;
-        //    MonitorConsole.PrintNameRequest();
-        //    nome = Console.ReadLine();
-        //    MonitorConsole.PrintSurnameRequest();
-        //    cognome = Console.ReadLine();
-        //    MonitorConsole.PrintBirtdayRequest();
-        //    birthday = Console.ReadLine();
-        //    id = id++;
-
-
-
-        //    return datiUtente;
-
-
-
-        //}
-        internal static void AddDataPerson()
+        
+        internal static void AddDataPerson(PersonManager personManager,int id)
         {
-            PersonManager personManager = new PersonManager();
+            //PersonManager personManager = new PersonManager();
             MonitorConsole.PrintNameRequest();
             string nome = Console.ReadLine();
             MonitorConsole.PrintSurnameRequest();
             string cognome = Console.ReadLine();
             MonitorConsole.PrintBirtdayRequest();
             string birthday = Console.ReadLine();
-            int id = 0;
-            id = id++;
-            personManager.AddPerson(nome, cognome, birthday, id);
-            personManager.AddPerson();
+            int _id;
+            _id = id + 1;
+            personManager.AddPerson(nome, cognome, birthday, _id);
+            
             return;
 
         }
-        private static void DelDataPerson()
+        private static void DelDataPerson(PersonManager personManager)
         {
-            PersonManager personManager = new PersonManager();
+            
             MonitorConsole.PrintRemoveIdRequest();
             string _id = Console.ReadLine();
             int.TryParse(_id, out int id);
@@ -166,17 +131,17 @@ namespace InsertPersonData
             return;
 
         }
-        private static void PrintPersonList()//(string nome, string cognome, string birthday, int id)
+        private static void PrintPersonList(PersonManager personManager)//(string nome, string cognome, string birthday, int id)
         {
-            PersonManager personManager = new PersonManager();
-            List<Person> PersonList = new List<Person>();
+            //PersonManager personManager = new PersonManager();
+            //List<Person> PersonList = new List<Person>();
             //Person user = new Person(nome, cognome, birthday, id);
             
-            foreach (Person item in PersonList)
+            foreach (Person item in personManager.PersonList)
             {
                 Console.WriteLine($"Le persone registrate sono: {item.Id}, {item.Nome}, {item.Cognome}, {item.Birthday} ");
             }
-            
+
             return;
 
         }
