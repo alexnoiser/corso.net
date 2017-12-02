@@ -1,0 +1,58 @@
+﻿@using SuperBiblioteca.Models
+
+@model LibroViewModel
+
+
+
+
+
+@{
+    ViewData["Title"] = "Edit Libro";
+    
+}
+
+@section Scripts {
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+}
+
+<h1>Modifica Libro</h1>
+
+<form method="post">
+    
+    <input type="hidden" asp-for="Libro.Id" />
+    
+    <div class="form-group">
+        <label class="control-label" asp-for="Libro.Nome">Titolo del Libro</label>
+        <input class="form-control" asp-for="Libro.Nome" />
+        <span asp-validation-for="Libro.Nome"></span>
+    </div>
+    <div class="form-group">
+        <label class="control-label" asp-for="Libro.Autore.Nome"></label>
+
+        <select asp-for="Libro.AutoreId" asp-items="@Model.ListaAutori"></select>
+        
+    </div>
+    <div class="form-group">
+        <label class="control-label" asp-for="Libro.Argomento">Argomento del libro</label>
+        <input class="form-control" asp-for="Libro.Argomento" />
+        <span asp-validation-for="Libro.Argomento"></span>
+    </div>
+    <div class="form-group">
+        <label class="control-label" asp-for="Libro.Biblioteca.Nome"></label>
+        
+        <select asp-for="Libro.BibliotecaId" asp-items="@Model.ListaBiblioteche"></select>
+        
+    </div>
+    
+    <div class="form-group">
+        <label class="control-label" asp-for="Libro.NumeroPagine">Numero di Pagine</label>
+        <input class="form-control" asp-for="Libro.NumeroPagine" />
+        <span asp-validation-for="Libro.NumeroPagine"></span>
+    </div>
+    
+
+    <div class="form-group">
+        <input type="submit" class="btn btn-success" value="Save" />
+    </div>
+</form>

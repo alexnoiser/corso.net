@@ -1,0 +1,34 @@
+1. Su quali protocolli si basa Internet per far comunicare computer diversi?
+
+2. Che cos'è il protocollo DNS? A cosa serve?
+
+3. La validazione dei dati, in un applicazione web:
+	-) può essere fatta solo sul client se il server è troppo lento
+	-) va fatta sempre su server e client
+	-) va sempre fatta almeno sul server
+
+4. Il protocollo HTTP funziona:
+	-) stabilendo una connessione e mantenendola attiva finché l'utente lascia il browser aperto
+	-) con coppie di chiamata-risposta brevi
+	-) con una chiamata del client che può ricevere un'elenco di risposte dal server
+
+5. Quale famiglia di Status Code HTTP corrispondono a errori del tipo "Errori dell'utente"? Spiega
+
+6. Cosa significa MVC e a che cosa si riferisce. Spiega i ruoli dei componenti
+
+7a. Posso scrivere una form HTML con metodo PUT?
+7b. Il controller di un'applicazione ASP.NET MVC può ricevere chiamate di tipo PUT?
+
+8. Come sono organizzati i middleware in una applicazione ASP.NET?
+	-) Come un pool di moduli da cui ASP.NET pesca a caso quando arriva una richiesta
+	-) Come un pool di moduli da cui ASP.NET pesca quello che come nome assomiglia di più all'url della request
+	-) Come una pipeline di moduli dove a decidere la risposta è sempre l'ultimo modulo
+	-) Come una pipeline di moduli dove a decidere la risposta può essere qualsiasi modulo
+
+9. Cos'è un Controller? Può servire solo pagine web? Spiega
+
+10. Dove vanno aggiunti gli script Javascript in una pagina HTML?
+
+11. Come scelgo se un metodo di un Controller deve accettare solo chiamate HTTP con un certo metodo?
+
+12. <input asp-for="HeroName" /> Spiega il significato dell'attributo "asp-for". Dove viene manipolato? Sul server o sul client?

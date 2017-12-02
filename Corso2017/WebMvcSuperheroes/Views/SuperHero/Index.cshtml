@@ -1,0 +1,52 @@
+﻿@model List<SuperHeroIndexViewModel>
+
+@{
+    ViewData["Title"] = "Heroes list";
+}
+
+<h1>SuperHero List</h1>
+
+<p>@TempData["message"]</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <td>Hero Name</td>
+            <td>Power</td>
+            <td>Can Fly</td>
+            <td>Villains to Fight</td>
+            <td colspan="2">Operations</td>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach(var sh in Model)
+    {
+        <tr>
+            <td>@sh.HeroName</td>
+            <td>@sh.Power</td>
+            <td>@sh.CanFly</td>
+            <td>@sh.VillainsToFight</td>
+            <td>
+                <a class="btn btn-primary"
+                   asp-controller="SuperHero"
+                   asp-action="Edit"
+                   asp-route-id="@sh.Id">Details</a>
+            </td>
+            <td>
+                <a class="btn btn-danger"
+                   asp-controller="SuperHero"
+                   asp-action="Delete"
+                   asp-route-id="@sh.Id">Delete</a>
+            </td>
+        </tr>
+    }
+        <tr>
+            <td colspan="6">
+                <a class="btn btn-primary"
+                   asp-controller="SuperHero"
+                   asp-action="Edit">Add Hero</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+

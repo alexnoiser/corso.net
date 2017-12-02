@@ -1,0 +1,28 @@
+﻿@model Biblioteca
+
+<h1>Elenco Libri presenti nella Libreria: @Model.Nome di @Model.Citta</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <td>Titolo</td>
+            <td>Autore</td>
+            <td>Argomento</td>
+            <td>Numero di Pagine</td>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var lb in Model.ListaLibri)
+        {
+            <tr>
+                <td>@lb.Nome</td>
+                <td>@lb.Autore.Nome</td>
+                <td>@lb.Argomento</td>
+                <td>@lb.NumeroPagine</td>
+
+            </tr>
+        }
+
+    </tbody>
+</table>

@@ -1,0 +1,46 @@
+1)
+
+Gli oggetti di dominio sono:
+
+Libro
+	Nome
+	Autore
+	Biblioteca
+	Argomento
+	Numero di Pagine
+
+Autore
+	Nome
+	Indirizzo
+	Elenco di libri scritti
+
+Biblioteca
+	Nome
+	Città
+	Elenco di libri contenuti
+
+Sviluppare una applicazione web per gestire le operazioni CRUD su questi tre oggetti.
+Inserire delle opportune validazioni sui dati.
+
+
+
+
+2)
+
+Tubo
+	Lunghezza
+	Materiale
+	Posatore
+
+Materiale
+	Nome
+	Classe di appartenenza
+	Coefficiente di fragilità
+
+Posatore
+	Nome
+	Cognome
+	Elenco di tubi posati
+
+Sviluppare una applicazione web per gestire le operazioni CRUD su questi tre oggetti.
+Inserire delle opportune validazioni sui dati.
