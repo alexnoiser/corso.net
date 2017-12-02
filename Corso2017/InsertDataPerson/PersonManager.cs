@@ -8,8 +8,12 @@ namespace InsertPersonData
 {
     class PersonManager
     {
-        List<Person> PersonList = new List<Person>();
-
+        public PersonManager()
+        {
+            PersonList = new List<Person>();
+        }
+        //List<Person> PersonList = new List<Person>();
+        public List<Person> PersonList { get; private set; }
         //public PersonManager(string nome, string cognome, string birthday, int id) : base(nome, cognome, birthday,id)
         //{
 
@@ -20,6 +24,15 @@ namespace InsertPersonData
         {
             Person user = new Person(nome, cognome, birthday, id);
             PersonList.Add(user);
+            
+        }
+        internal static int CreaId(List<Person> idList)
+        {
+            //Person user = new Person(nome, cognome, birthday, id);
+            return idList.Count;
+
+                
+
         }
         internal void DelPerson(string nome, string cognome, string birthday, int id)
         {
@@ -31,16 +44,16 @@ namespace InsertPersonData
         }
         internal void ListPerson(string nome, string cognome, string birthday, int id)
         {
-            Person user = new Person(nome, cognome, birthday, id);
+            //Person user = new Person(nome, cognome, birthday, id);
             //MonitorConsole consolewrite = new MonitorConsole();
 
             if (PersonList.Count == 0)
             {
-
+                Console.WriteLine(" La Lista è vuota");
             }
             else
             {
-                foreach (Person item in PersonList)
+                foreach (Person user in PersonList)
                 {
                     Console.WriteLine($"Le persone registrate sono: {user.Id}, {user.Nome}, {user.Cognome}, {user.Birthday} ");
                 }
@@ -48,5 +61,11 @@ namespace InsertPersonData
         }
 
 
+  
+
+
     }
 }
+ 
+
+// Creare una copia di una Lista originale sul program.  La Console.Write va messo 
