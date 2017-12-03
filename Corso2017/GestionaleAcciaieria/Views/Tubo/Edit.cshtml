@@ -1,0 +1,61 @@
+﻿@model TuboViewModel
+
+@{
+    ViewData["Title"] = "Edit Tubo";
+
+}
+
+@section Scripts {
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+}
+
+
+<h1>Modifica Tubo</h1>
+
+<form method="post">
+    <input type="hidden" asp-for="Tubo.Id" />
+
+    <div class="form-group">
+        <label class="control-label" asp-for="Tubo.LunghezzaTubo">Lunghezza Tubo in metri</label>
+        <input class="form-control" asp-for="Tubo.LunghezzaTubo" />
+        <span asp-validation-for="Tubo.LunghezzaTubo"></span>
+    </div>
+    
+    <div class="form-group">
+        <label class="control-label" asp-for="Tubo.Materiale"></label>
+
+        <select asp-for="Tubo.MaterialeId" asp-items="@Model.ListaMateriali"></select>
+
+    </div>    
+    
+    
+    <div class="form-group">
+        <label class="control-label" asp-for="Tubo.Posatore"></label>
+
+        <select asp-for="Tubo.PosatoreId" asp-items="@Model.ListaPosatori"></select>
+
+    </div>
+    
+    @*<div class="form-group">
+        <label class="control-label" asp-for=".Biblioteca.Nome"></label>
+
+        <select asp-for="Tubo.MaterialeId" asp-items="@Model.L"></select>
+
+    </div>*@
+
+    @*<div class="form-group">
+        <label class="control-label" asp-for="Libro.NumeroPagine">Numero di Pagine</label>
+        <input class="form-control" asp-for="Libro.NumeroPagine" />
+        <span asp-validation-for="Libro.NumeroPagine"></span>
+    </div>*@
+
+
+    <div class="form-group">
+        <input type="submit" class="btn btn-success" value="Save" />
+    </div>
+
+
+
+
+</form>

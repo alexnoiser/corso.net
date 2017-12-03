@@ -1,0 +1,24 @@
+﻿@model Posatore
+    
+<h1>Elenco Tubi Posati di @Model.Nome @Model.Cognome</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <td>Lunghezza Tubo in metri</td>
+            <td>Materiale</td>
+                     
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var p in Model.ElencoTubi)
+        {
+            <tr>
+                <td>@p.LunghezzaTubo</td>
+                <td>@p.Materiale.Nome</td>
+                                  
+            </tr>
+        }
+       
+    </tbody>
+</table>

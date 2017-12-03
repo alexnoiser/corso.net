@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Tubo>
+
+@{ 
+    ViewData["Title"] = "Lista Tubi";
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <td>Lunghezza</td>
+            <td>Materiale</td>
+            <td>Posatore</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var t in Model)
+        {
+            <tr>
+                <td>@t.LunghezzaTubo metri</td>
+                <td>@t.Materiale.Nome</td>
+                <td>@t.Posatore.Nome @t.Posatore.Cognome</td>
+                <td>
+                    <a class="btn btn-primary" 
+                       asp-controller="Tubo"
+                       asp-action="Edit"
+                       asp-route-id="@t.Id">Details
+                    </a>
+                </td>
+                <td>
+                    <a class="btn btn-danger"
+                       asp-controller="Tubo"
+                       asp-action="Delete"
+                       asp-route-id="@t.Id">
+                        Delete
+                    </a>
+                </td>
+            </tr>    
+
+        }
+        <tr>
+            <td colspan="6">
+                <a class="btn btn-primary"
+                   asp-controller="Tubo"
+                   asp-action="Edit">Aggiungi Tubo
+                </a>
+            </td>
+        </tr>
+
+
+
+
+    </tbody>
+
+</table>

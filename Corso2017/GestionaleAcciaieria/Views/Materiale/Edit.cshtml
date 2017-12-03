@@ -1,0 +1,41 @@
+﻿@using GestionaleAcciaieria.Models
+
+@model Materiale
+
+
+
+
+
+@{
+    ViewData["Title"] = "Edit Materiale";
+}
+
+@section Scripts {
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+}
+
+<h1>Modifica Autore</h1>
+
+<form method="post">
+    <div class="form-group">
+        <label class="control-label" asp-for="Nome"></label>
+        <input class="form-control" asp-for="Nome" />
+        <span asp-validation-for="Nome"></span>
+    </div>
+    <div class="form-group">
+        <label class="control-label" asp-for="ClasseAppartenenza"></label>
+        <input class="form-control" asp-for="ClasseAppartenenza" />
+        <span asp-validation-for="ClasseAppartenenza"></span>
+    </div>
+    <div class="form-group">
+        <label class="control-label" asp-for="CoeffFragilita"></label>
+        <input class="form-control" asp-for="CoeffFragilita" />
+        <span asp-validation-for="CoeffFragilita"></span>
+    </div>
+
+
+    <div class="form-group">
+        <input type="submit" class="btn btn-success" value="Save" />
+    </div>
+</form>

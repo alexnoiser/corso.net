@@ -1,0 +1,55 @@
+﻿@model IEnumerable<Posatore>
+
+@{
+    ViewData["Title"] = "Lista Posatori";
+}
+
+
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <td>Nome</td>
+            <td>Cognome</td>
+           
+            <td colspan="3">Operations</td>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var p in Model)
+        {
+            <tr>
+                <td>@p.Nome</td>
+                <td>@p.Cognome</td>
+
+                <td>
+                    <a class="btn btn-primary"
+                       asp-controller="Posatore"
+                       asp-action="Edit"
+                       asp-route-id="@p.Id">Details</a>
+                </td>
+                <td>
+                    <a class="btn btn-success"
+                       asp-controller="Posatore"
+                       asp-action="TubiPerPosatore"
+                       asp-route-id="@p.Id">Tubi Posati</a>
+                </td>
+                <td>
+                    <a class="btn btn-danger"
+                       asp-controller="Posatore"
+                       asp-action="Delete"
+                       asp-route-id="@p.Id">Delete</a>
+                </td>
+            </tr>
+        }
+        <tr>
+            <td colspan="6">
+                <a class="btn btn-primary"
+                   asp-controller="Posatore"
+                   asp-action="Edit">Aggiungi Nuovo Posatore</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
